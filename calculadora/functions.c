@@ -1,45 +1,51 @@
 #include "functions.h"
 
-void menu(float a, float b)
+/*------------------------------------------------Menu-------------------------------------------------------------------------*/
+
+void menu(int a, int b, int flagA, int flagB)
 {
     printf("\n\nBIENVENIDO AL MENU DE OPCIONES \n");
 	printf("  Seleccione una opcion  \n");
-	printf("1) Ingresar 1er valor (A= %.2f ) \n", a);
-	printf("2) Ingresar 2do valor (B= %.2f ) \n", b);
+	printf("1) Ingresar 1er valor (A= %d ) \n", a);
+	printf("2) Ingresar 2do valor (B= %d ) \n", b);
 	printf("3) Calcular todas las operaciones. \n");
-	printf("        a) Calcular la suma de: (A= %.2f ) + (B= %.2f) \n", a, b);
-	printf("        b) Calcular la resta de: (A= %.2f ) - (B= %.2f) \n", a, b);
-	printf("        c) Calcular la division de: (A= %.2f ) / (B= %.2f) \n", a, b);
-	printf("        d) Calcular la multiplicacion de: (A= %.2f ) * (B= %.2f) \n", a, b);
-	printf("        e) Calcular el factorial de: (A!= %.2f) \n", a);
-	printf("        f) Calcular el factorial de: (B!= %.2f) \n", b);
+	printf("        a) Calcular la suma de: (A= %d ) + (B= %d) \n", a, b);
+	printf("        b) Calcular la resta de: (A= %d ) - (B= %d) \n", a, b);
+	printf("        c) Calcular la division de: (A= %d ) / (B= %d) \n", a, b);
+	printf("        d) Calcular la multiplicacion de: (A= %d) * (B= %d) \n", a, b);
+	printf("        e) Calcular el factorial de: (A!= %d) \n", a);
+	printf("        f) Calcular el factorial de: (B!= %d) \n", b);
 	printf("4) Informar resultados \n");
 	printf("5) Salir\n\n");
 }
+/*---------------------------------------------------------------------------------------------------------------------------------*/
 
-void eleccion(float a, float b)
+/*----------------------------------------------------Opciones-------------------------------------------------------------------------*/
+
+void eleccion(int a, int b)
 {
     int opcion;
-    float resultado_Suma;
-    float resultado_Resta;
-    float resultado_Multiplicacion;
+    int flagA = 0;
+    int flagB = 0;
+    int resultado_Suma;
+    int resultado_Resta;
+    int resultado_Multiplicacion;
     float resultado_Division;
-    int resultado_FactorialA;
-    int resultado_FactorialB;
+    long long int resultado_FactorialA;
+    long long int resultado_FactorialB;
 
     do{
-    menu(a,b);
-    printf("Ingrese una opcion: ");
-    scanf("%d", &opcion);
+    menu(a,b, flagA, flagB);
+    opcion = get_int(opcion);
     switch(opcion)
     {
     case 1:
-    printf("Ingrese el valor de a: ");
-    scanf("%f", &a);
+    a = get_int(a);
+    flagA = 1;
     break;
     case 2:
-    printf("Ingrese el valor de b: ");
-    scanf("%f", &b);
+    b = get_int(b);
+    flagB = 1;
     break;
     case 3:
         resultado_Suma=sumar(a,b);
@@ -48,24 +54,32 @@ void eleccion(float a, float b)
         resultado_Division=dividir(a,b);
         resultado_FactorialA=factorial(a);
         resultado_FactorialB=factorial(b);
+        printf("Se realizaron las operaciones con exito.\n");
     break;
     case 4:
-        printf("El valor de la suma es: %f\n", resultado_Suma);
-        printf("El valor de la resta es: %f\n", resultado_Resta);
-        printf("El valor de la multiplicacion es: %f\n", resultado_Multiplicacion);
-        printf("El valor de la division es: %f\n", resultado_Division);
+        printf("El valor de la suma es: %d\n", resultado_Suma);
+        printf("El valor de la resta es: %d\n", resultado_Resta);
+        printf("El valor de la multiplicacion es: %d\n", resultado_Multiplicacion);
+        if(b == 0)
+        {
+            printf("No se puede dividir por 0");
+        }else{
+            printf("El valor de la division es: %.2f\n", resultado_Division);
+        }
+
         if(!factorial(a))
         {
-        printf("No se puede realizar factorial de numeros negativos o con coma\n");
+        printf("No se puede realizar factorial del numero A porque es negativo o mayor a 15 y ");
         }else
         {
-        printf("El factorial de A es: %d\n",resultado_FactorialA);
+        printf("El factorial de A es: %lld y ",resultado_FactorialA);
         }
+
         if(!factorial(b))
         {
-        printf("No se puede realizar factorial de numeros negativos o con coma\n");
+        printf("No se puede realizar factorial de B porque es negativo o mayor a 15\n");
         }else{
-        printf("El factorial de B es: %d\n",resultado_FactorialB);
+        printf("El factorial de B es: %lld\n",resultado_FactorialB);
         }
     break;
     case 5:
@@ -77,33 +91,33 @@ void eleccion(float a, float b)
     system("cls");
     }while(opcion != 5);
 }
+/*---------------------------------------------------------------------------------------------------------------------------------*/
 
+/*---------------------------------------------------Operaciones-----------------------------------------*/
 
-float sumar(float a, float b)
+int sumar(int a, int b)
 {
     return a + b;
 }
 
-float restar(float a, float b)
+int restar(int a, int b)
 {
     return a - b;
 }
 
-float multiplicar(float a, float b)
+int multiplicar(int a, int b)
 {
     return a * b;
 }
-float dividir(float a, float b)
+float dividir(int a, int b)
 {
-    return a / b;
+    return (float)a / b;
 }
 
-int factorial (float numero)
+long long int factorial (int numero)
 {
-  int validacion;
-  int resultado;
-  validacion = numero - (int)numero;
-  if (validacion == 0 && numero>=0)
+  long long int resultado;
+  if (numero > -1 && numero < 16)
     {
         if (numero == 0)
     	{
@@ -118,3 +132,13 @@ int factorial (float numero)
       return 0;
     }
 }
+/*---------------------------------------------------------------------------------------------------------*/
+/*------------------------------------------------Ingreso de datos----------------------------------------------*/
+int get_int(int num)
+{
+    printf("Ingrese un numero: ");
+    scanf("%d", &num);
+    return num;
+}
+
+/*--------------------------------------------------------------------------------------------------------------*/
