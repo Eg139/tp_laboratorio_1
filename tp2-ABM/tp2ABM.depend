@@ -1,0 +1,102 @@
+# depslib dependency file v1.0
+1589656768 source:c:\users\usuario\documents\ejercicio clase\tp2\tp2abm\main.c
+	<stdio.h>
+	"ArrayEmployees.h"
+
+1589661910 c:\users\usuario\documents\ejercicio clase\tp2\tp2abm\arrayemployees.h
+	"Gets.h"
+	"Validate.h"
+	<stdlib.h>
+	<string.h>
+	<stdio.h>
+
+1589660657 source:c:\users\usuario\documents\ejercicio clase\tp2\tp2abm\arrayemployees.c
+	"ArrayEmployees.h"
+
+1589257174 source:c:\users\usuario\documents\primerparcial\gets.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"Gets.h"
+	"Validate.h"
+
+1589257183 c:\users\usuario\documents\primerparcial\gets.h
+
+1588816230 c:\users\usuario\documents\primerparcial\validate.h
+
+1589564909 source:c:\users\usuario\documents\primerparcial\validate.c
+	"Validate.h"
+
+1589657018 c:\users\usuario\documents\ejercicio clase\tp2\tp2abm\gets.h
+
+1588816230 c:\users\usuario\documents\ejercicio clase\tp2\tp2abm\validate.h
+
+1589564909 source:c:\users\usuario\documents\ejercicio clase\tp2\tp2abm\validate.c
+	"Validate.h"
+
+1589657485 source:c:\users\usuario\documents\ejercicio clase\tp2\tp2abm\gets.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"Gets.h"
+	<ctype.h>
+	"Validate.h"
+
+1589678618 source:c:\users\usuario\documents\ejercicio clase\tp2\tp2_laboratorio_1\arrayemployees.c
+	"ArrayEmployees.h"
+
+1589683837 c:\users\usuario\documents\ejercicio clase\tp2\tp2_laboratorio_1\arrayemployees.h
+	"Gets.h"
+	"Validate.h"
+	<stdlib.h>
+	<string.h>
+	<stdio.h>
+
+1589664309 c:\users\usuario\documents\ejercicio clase\tp2\tp2_laboratorio_1\gets.h
+
+1588816230 c:\users\usuario\documents\ejercicio clase\tp2\tp2_laboratorio_1\validate.h
+
+1589664339 source:c:\users\usuario\documents\ejercicio clase\tp2\tp2_laboratorio_1\gets.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"Gets.h"
+	<ctype.h>
+	"Validate.h"
+
+1589656768 source:c:\users\usuario\documents\ejercicio clase\tp2\tp2_laboratorio_1\main.c
+	<stdio.h>
+	"ArrayEmployees.h"
+
+1589564909 source:c:\users\usuario\documents\ejercicio clase\tp2\tp2_laboratorio_1\validate.c
+	"Validate.h"
+
+1589684261 source:c:\users\usuario\desktop\utn\programacion\tp2-abm\arrayemployees.c
+	"ArrayEmployees.h"
+
+1589684261 c:\users\usuario\desktop\utn\programacion\tp2-abm\arrayemployees.h
+	"Gets.h"
+	"Validate.h"
+	<stdlib.h>
+	<string.h>
+	<stdio.h>
+
+1589684261 c:\users\usuario\desktop\utn\programacion\tp2-abm\gets.h
+
+1589684261 c:\users\usuario\desktop\utn\programacion\tp2-abm\validate.h
+
+1589684261 source:c:\users\usuario\desktop\utn\programacion\tp2-abm\gets.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"Gets.h"
+	<ctype.h>
+	"Validate.h"
+
+1589684261 source:c:\users\usuario\desktop\utn\programacion\tp2-abm\main.c
+	<stdio.h>
+	"ArrayEmployees.h"
+
+1589684261 source:c:\users\usuario\desktop\utn\programacion\tp2-abm\validate.c
+	"Validate.h"
+
