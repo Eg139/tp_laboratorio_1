@@ -20,7 +20,7 @@ void menu()
     initEmployees(listEmployees, T);
     do
     {
-        opcion = menuUser("1. ALTA DE EMPLEADOS\n2. MODIFICAR EMPLEADOS\n3. BAJA DE EMPLEADOS\n4. INFORMAR\n5.SALIR\nELIJA UNA OPCION: ");
+        opcion = menuUser("MENU DE ABM \n\n1. ALTA DE EMPLEADOS\n2. MODIFICAR EMPLEADOS\n3. BAJA DE EMPLEADOS\n4. INFORMAR\n5.SALIR\nELIJA UNA OPCION: ");
         switch(opcion)
         {
         case 1:
@@ -204,7 +204,7 @@ int printEmployees(eEmployee listado[], int len)
 {
     int i;
     int index = -1;
-    printf("   ID   \tNOMBRE      APELLIDO     SALARIO   SECTOR\n");
+    printf("     ID\t\tNOMBRE      APELLIDO     SALARIO   SECTOR\n");
     for(i = 0; i < len; i++)
     {
         if(listado[i].isEmpty == OCUPADO)
@@ -218,7 +218,7 @@ int printEmployees(eEmployee listado[], int len)
 
 void printEmployee(eEmployee miEmployee)
 {
-    printf("%4d %15s %15s \t%8.2f %4d\n",miEmployee.id,
+    printf("%6d \t%12s %12s \t%8.2f %6d\n",miEmployee.id,
            miEmployee.name,
            miEmployee.lastName,
            miEmployee.salary,
