@@ -1,12 +1,15 @@
-#define LIBRE 0
-#define OCUPADO 1
-#define BAJA -2
+#ifndef ARRAYEMPLOYEES_H_INCLUDED
+#define ARRAYEMPLOYEES_H_INCLUDED
+
+#define LIBRE 1
+#define OCUPADO 0
 #include "Gets.h"
 #include "Validate.h"
 #define T 1000
 #include <stdlib.h>
 #include <string.h>
 #include <stdio.h>
+
 
 typedef struct
 {
@@ -16,20 +19,23 @@ typedef struct
     float salary;
     int sector;
     int isEmpty;
-}eEmployee;
-
+} eEmployee;
+#endif // ARRAYEMPLOYEES_H_INCLUDED
 
 /** \brief shows the menu and all its options
  * \return void
  */
 void menu();
 
-/** \brief modify the employee characteristic that the user chooses
- * \param listado[] eEmployee
+/** \brief find an Employee by Id en returns the index position in array.
+ *
+ * \param list Employee*
  * \param len int
- * \return int Return (-1) if Error - (0) if Ok
+ * \param id int
+ * \return Return employee index position or (-1) if [Invalid length or NULL pointer received or employee not found]
+ *
  */
-int modifyEmployee(eEmployee listado[], int len);
+int modifyEmployee(eEmployee listado[], int len, int id);
 
 /** \brief Remove an Employee by Id
  * \param listado[] eEmployee
@@ -64,10 +70,9 @@ int menuUser(char texto[]);
  *
  * \param listado[] eEmployee
  * \param len int
- * \param cont int
  * \return int Return (-1) if Error - (0) if Ok
  */
-int addEmployees(eEmployee listado[], int len, int cont);
+int addEmployees(eEmployee listado[], int len);
 
 /** \brief print the content of employees array
  *
@@ -103,28 +108,39 @@ eEmployee createEmployee(int id);
  */
 int sortEmployees(eEmployee listado[], int len);
 
-/** \brief data preload in the employee list
- * \param listado[] eEmployee
- * \return void
- *
- */
-void hardCodear(eEmployee listado[]);
-
 /** \brief shows the total salary of employees, their average and employees with higher than average salary
  *
  * \param listado[] eEmployee
  * \param len int
- * \return int int Return (-1) if Error - (0) if Ok
+ * \return int Return (-1) if Error - (0) if Ok
  *
  */
 int showSalary(eEmployee listado[], int len);
 
-/** \brief an Employee by Id en returns the index position in array.
+/** \brief find an Employee by Id en returns the index position in array.
  *
- * \param message[] char
+ * \param list Employee*
+ * \param len int
+ * \param id int
+ * \return Return employee index position or (-1) if [Invalid length or NULL pointer received or employee not found]
+ */
+int findEmployeeById(eEmployee listado[], int len, int id);
+
+
+/** \brief case 4 options menu
+ *
  * \param listado[] eEmployee
  * \param len int
- * \return int int Return (-1) if Error - (0) if Ok
+ * \return int Return (-1) if Error - (0) if Ok
  *
  */
-int findEmployeeById(char message[],eEmployee listado[], int len);
+int opcionCuatro(eEmployee listado[],int len);
+
+/** \brief case 2 options menu
+ *
+ * \param listado[] eEmployee
+ * \param len int
+ * \return int Return (-1) if Error - (0) if Ok
+ *
+ */
+int opcionDos(eEmployee listado[],int len);

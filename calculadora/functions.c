@@ -108,7 +108,6 @@ void eleccion(int a, int b)
         case 5:
             printf("\nSaliendo del programa\n\n");
             break;
-            break;
         default:
             break;
         }
