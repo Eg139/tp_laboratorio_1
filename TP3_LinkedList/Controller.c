@@ -15,9 +15,10 @@
 int controller_loadFromText(char* path , LinkedList* pArrayListEmployee)
 {
     int todoOk = -1;
+    FILE* f;
     if(path != NULL && pArrayListEmployee!=NULL)
     {
-        FILE* f = fopen(path, "r");
+        f = fopen(path, "r");
         parser_EmployeeFromText(f,pArrayListEmployee);
 
 
@@ -153,7 +154,7 @@ int controller_sortEmployee(LinkedList* pArrayListEmployee)
         }
         if(option==5)
         {
-            controller_ListEmployee(auxiliar);
+            //controller_ListEmployee(auxiliar);
         }
         system("pause");
         system("cls");

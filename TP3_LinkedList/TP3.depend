@@ -212,7 +212,7 @@
 
 1604301174 c:\users\usuario\desktop\utn\programacion\tp3_cascara\win_64\parser.h
 
-1604695760 source:c:\users\usuario\desktop\utn\programacion\tp3_linkedlist\controller.c
+1604698266 source:c:\users\usuario\desktop\utn\programacion\tp3_linkedlist\controller.c
 	<stdio.h>
 	<stdlib.h>
 	"LinkedList.h"
@@ -221,17 +221,17 @@
 
 1604301174 c:\users\usuario\desktop\utn\programacion\tp3_linkedlist\linkedlist.h
 
-1604695729 c:\users\usuario\desktop\utn\programacion\tp3_linkedlist\employee.h
+1604699930 c:\users\usuario\desktop\utn\programacion\tp3_linkedlist\employee.h
 
-1604301174 c:\users\usuario\desktop\utn\programacion\tp3_linkedlist\parser.h
+1604698414 c:\users\usuario\desktop\utn\programacion\tp3_linkedlist\parser.h
 
-1604693961 source:c:\users\usuario\desktop\utn\programacion\tp3_linkedlist\employee.c
+1604699078 source:c:\users\usuario\desktop\utn\programacion\tp3_linkedlist\employee.c
 	"Employee.h"
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 
-1604695787 source:c:\users\usuario\desktop\utn\programacion\tp3_linkedlist\main.c
+1604697686 source:c:\users\usuario\desktop\utn\programacion\tp3_linkedlist\main.c
 	<stdio.h>
 	<stdlib.h>
 	"LinkedList.h"
@@ -240,9 +240,10 @@
 
 1604695633 c:\users\usuario\desktop\utn\programacion\tp3_linkedlist\controller.h
 
-1604613295 source:c:\users\usuario\desktop\utn\programacion\tp3_linkedlist\parser.c
+1604699365 source:c:\users\usuario\desktop\utn\programacion\tp3_linkedlist\parser.c
 	<stdio.h>
 	<stdlib.h>
 	"LinkedList.h"
 	"Employee.h"
+	"Controller.h"
 

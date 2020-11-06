@@ -72,16 +72,16 @@ int employeeSortBySueldo(void* empleadoA, void* empleadoB)
     return retorno;
 }
 
-int employee_setId(Employee* this,int id)
+int employee_setId(Employee* employee,int id)
 {
         int todoOk =0;
 
-   /* if(pEmp != NULL && legajo > 0)
+   if(employee != NULL && id > 0)
     {
-        pEmp ->legajo = legajo;
+        employee ->id = id;
         todoOk = 1;
     }
-*/
+
     return todoOk;
 }
 int employee_getId(Employee* employeeList,int* id)
@@ -97,15 +97,15 @@ int employee_getId(Employee* employeeList,int* id)
     return todoOk;
 }
 
-int employee_setNombre(Employee* this,char* nombre)
+int employee_setNombre(Employee* employee,char* nombre)
 {
         int todoOk =0;
 
-    /*if(pEmp != NULL && nombre != NULL)
+    if(employee != NULL && nombre != NULL)
     {
-        strcpy(pEmp ->nombre, nombre);
+        strcpy(employee ->nombre, nombre);
         todoOk = 1;
-    }*/
+    }
 
     return todoOk;
 }
@@ -122,15 +122,15 @@ int employee_getNombre(Employee* employeeList,char* nombre)
     return todoOk;
 }
 
-int employee_setHorasTrabajadas(Employee* this,int horasTrabajadas)
+int employee_setHorasTrabajadas(Employee* employee,int horasTrabajadas)
 {
-            int todoOk =0;
+    int todoOk =0;
 
-    /*if(pEmp != NULL && nombre != NULL)
+    if(employee != NULL && horasTrabajadas > 0)
     {
-        strcpy(pEmp ->nombre, nombre);
+        employee ->horasTrabajadas = horasTrabajadas;
         todoOk = 1;
-    }*/
+    }
 
     return todoOk;
 }
@@ -147,15 +147,15 @@ int employee_getHorasTrabajadas(Employee* employeeList,int* horasTrabajadas)
     return todoOk;
 }
 
-int employee_setSueldo(Employee* this,int sueldo)
+int employee_setSueldo(Employee* employee,int sueldo)
 {
-            int todoOk =0;
+    int todoOk =0;
 
-    /*if(pEmp != NULL && nombre != NULL)
+    if(employee != NULL && sueldo > 0)
     {
-        strcpy(pEmp ->nombre, nombre);
+        employee ->sueldo = sueldo;
         todoOk = 1;
-    }*/
+    }
 
     return todoOk;
 }
@@ -170,4 +170,42 @@ int employee_getSueldo(Employee* employeeList,int* sueldo)
     }
 
     return todoOk;
+}
+
+
+Employee* newEmpleado()
+{
+    Employee* nuevoEmpleado = NULL;
+    nuevoEmpleado = (Employee*) malloc(sizeof(Employee));
+
+    if(nuevoEmpleado != NULL)
+    {
+        nuevoEmpleado->id = 0;
+        strcpy(nuevoEmpleado->nombre, "");
+        nuevoEmpleado->horasTrabajadas = 0;
+        nuevoEmpleado->sueldo = 0;
+    }
+
+    return nuevoEmpleado;
+}
+
+Employee* newEmpleadoParam(char* id, char* nombre, char* horasTrabajadas, char* sueldo)
+{
+    Employee* nuevoEmpleado = newEmpleado();
+
+    if(nuevoEmpleado != NULL)
+    {
+        if(!(employee_setId(nuevoEmpleado,atoi(id))
+                && employee_setNombre(nuevoEmpleado,nombre)
+                && employee_setHorasTrabajadas(nuevoEmpleado,atoi(horasTrabajadas))
+                && employee_setSueldo(nuevoEmpleado,atoi(sueldo))))
+        {
+            free(nuevoEmpleado);
+            nuevoEmpleado = NULL;
+        }
+
+    }
+
+
+    return nuevoEmpleado;
 }
