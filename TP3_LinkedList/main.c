@@ -18,10 +18,12 @@
     10. Salir
 *****************************************************/
 void menu();
+int get_id(int id);
 
 int main()
 {
     int option = 0;
+    int flagId;
 
     LinkedList* listaEmpleados = ll_newLinkedList();
     do
@@ -32,13 +34,15 @@ int main()
         switch(option)
         {
         case 1:
-            controller_loadFromText("data.csv",listaEmpleados);
+            flagId= controller_loadFromText("data.csv",listaEmpleados);
+            flagId++;
             break;
         case 2:
-            controller_loadFromBinary("data.bin",listaEmpleados);
+            flagId= controller_loadFromBinary("data.bin",listaEmpleados);
+            flagId++;
             break;
         case 3:
-            controller_addEmployee(listaEmpleados);
+            controller_addEmployee(listaEmpleados,flagId);
             break;
         case 4:
             controller_editEmployee(listaEmpleados);

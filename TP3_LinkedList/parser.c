@@ -5,13 +5,7 @@
 #include "Controller.h"
 
 
-/** \brief Parsea los datos los datos de los empleados desde el archivo data.csv (modo texto).
- *
- * \param path char*
- * \param pArrayListEmployee LinkedList*
- * \return int
- *
- */
+
 int parser_EmployeeFromText(FILE* pFile , LinkedList* pArrayListEmployee)
 {
 
@@ -21,7 +15,6 @@ int parser_EmployeeFromText(FILE* pFile , LinkedList* pArrayListEmployee)
     char nameStr[30];
     char salaryStr[30];
     char hoursStr[30];
-    char cabecera[30];
     int i=-1;
 
 
@@ -30,8 +23,8 @@ int parser_EmployeeFromText(FILE* pFile , LinkedList* pArrayListEmployee)
         while(!feof(pFile)){
             i++;
             if(i==0){
-                fscanf(pFile, "%[^\n]\n",cabecera);
-                printf("cabecera: %s\n", cabecera);
+                //fscanf(pFile, "%[^\n]\n",cabecera);
+                //printf("cabecera: %s\n", cabecera);
                 continue;
             }
             fscanf(pFile, "%[^,],%[^,],%[^,],%[^\n]\n", idStr,nameStr,hoursStr,salaryStr);
@@ -44,20 +37,13 @@ int parser_EmployeeFromText(FILE* pFile , LinkedList* pArrayListEmployee)
             }
 
         }
+        printf("Archivo cargado con Exito\n\n");
         fclose(pFile);
-        controller_ListEmployee(pArrayListEmployee);
 
     }
     return maxId;
 }
 
-/** \brief Parsea los datos los datos de los empleados desde el archivo data.csv (modo binario).
- *
- * \param path char*
- * \param pArrayListEmployee LinkedList*
- * \return int
- *
- */
 int parser_EmployeeFromBinary(FILE* pFile , LinkedList* pArrayListEmployee)
 {
 
@@ -87,7 +73,6 @@ int parser_EmployeeFromBinary(FILE* pFile , LinkedList* pArrayListEmployee)
             }
         }
         fclose(pFile);
-        controller_ListEmployee(pArrayListEmployee);
     }
 
 

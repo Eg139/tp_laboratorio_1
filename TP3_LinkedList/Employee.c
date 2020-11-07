@@ -5,20 +5,33 @@
 
 int employeeSortById(void* empleadoA, void* empleadoB)
 {
-    int retorno = 0;
-    int idA;
-    int idB;
-
-    if(empleadoA!=NULL && empleadoB != NULL)
+    Employee* auxEmployee1;
+    Employee* auxEmployee2;
+    int id1;
+    int id2;
+    int ret;
+    if(empleadoA != NULL && empleadoB != NULL)
     {
-        employee_getId((Employee*)empleadoA,&idA);
-        employee_getId((Employee*)empleadoB,&idB);
+        auxEmployee1=(Employee*)empleadoA;
+        auxEmployee2=(Employee*)empleadoB;
+
+        employee_getId(auxEmployee1, &id1);
+        employee_getId(auxEmployee2, &id2);
+
+        if(id1 > id2)
+        {
+            ret=1;
+        }
+        else if(id1 < id2){
+            ret=-1;
+        }else{
+            ret = 0;
+        }
 
 
-        retorno = idA -idB;
+
     }
-
-    return retorno;
+    return ret;
 }
 int employeeSortByName(void* empleadoA, void* empleadoB)
 {
@@ -208,4 +221,28 @@ Employee* newEmpleadoParam(char* id, char* nombre, char* horasTrabajadas, char* 
 
 
     return nuevoEmpleado;
+}
+
+int mostrarEmpleado(Employee* pEmp)
+{
+    int error = 0;
+
+    int id;
+    char name[50];
+    int hoursWorked;
+    int salary;
+
+    if(pEmp!=NULL)
+    {
+        if(employee_getId(pEmp, &id)==1 && employee_getSueldo(pEmp, &salary)==1 &&
+           employee_getHorasTrabajadas(pEmp, &hoursWorked)==1 &&employee_getNombre(pEmp, name)==1 )
+        {
+            printf("|%10d|%20s|%13d|%10d|\n", id, name, hoursWorked, salary);
+            error=1;
+        }
+    }
+    printf("\n");
+
+
+    return error;
 }

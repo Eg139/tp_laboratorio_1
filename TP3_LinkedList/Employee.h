@@ -31,5 +31,7 @@ int employeeSortBySueldo(void* empleadoA, void* empleadoB);
 
 Employee* newEmpleadoParam(char* id, char* nombre, char* horasTrabajadas, char* sueldo);
 Employee* newEmpleado();
+int mostrarEmpleado(Employee* pEmp);
+
 
 #endif // employee_H_INCLUDED
