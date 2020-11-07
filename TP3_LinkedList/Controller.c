@@ -109,26 +109,54 @@ int controller_addEmployee(LinkedList* pArrayListEmployee)
  */
 int controller_editEmployee(LinkedList* pArrayListEmployee)
 {
-    return 1;
+    int retorno=-1;
+    int id;
+    int index;
+
+    if(pArrayListEmployee != NULL)
+    {
+        printf("Ingrese el id a modificar: ");
+        scanf("%d", &id);
+        index= employee_buscarId(pArrayListEmployee, id);
+        if(index != -1)
+        {
+            retorno=employee_edit(pArrayListEmployee, index);
+        }
+
+    }else{
+        retorno=0;
+    }
+    return retorno;
+
 }
 
-/** \brief Baja de empleado
- *
- * \param path char*
- * \param pArrayListEmployee LinkedList*
- * \return int
- *
- */
+
 int controller_removeEmployee(LinkedList* pArrayListEmployee)
 {
-    return 1;
+    int retorno=-1;
+    int index;
+    int id;
+
+    if(pArrayListEmployee != NULL)
+    {
+        printf("Ingrese el Id del empleado que quiere elimininar: ");
+        scanf("%d", &id);
+        index= employee_buscarId(pArrayListEmployee, id);
+        if(index!=-1)
+        {
+            retorno=employee_delete(pArrayListEmployee, index);
+        }
+    }else{
+        retorno=0;
+    }
+    return retorno;
 }
 
 
 int controller_ListEmployee(LinkedList* pArrayListEmployee)
 {
-        int i;
-    int ret=0;
+    int i;
+    int retorno=0;
     int size;
     Employee* aux;
 
@@ -146,12 +174,12 @@ int controller_ListEmployee(LinkedList* pArrayListEmployee)
                 mostrarEmpleado(aux);
             }
                 printf("|__________|____________________|_____________|__________|\n");
-            ret=1;
+            retorno=1;
         }else{
-            ret=-1;
+            retorno=-1;
         }
     }
-    return ret;
+    return retorno;
 }
 
 

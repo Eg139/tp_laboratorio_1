@@ -51,36 +51,61 @@ int employeeSortByName(void* empleadoA, void* empleadoB)
 }
 int employeeSortByHorasTrabajadas(void* empleadoA, void* empleadoB)
 {
-    int retorno = 0;
+    int retorno;
     int horasTrabadasA;
     int horasTrabadasB;
+    Employee* auxEmployee1;
+    Employee* auxEmployee2;
+
 
     if(empleadoA!=NULL && empleadoB != NULL)
     {
-        employee_getHorasTrabajadas((Employee*)empleadoA,&horasTrabadasA);
-        employee_getHorasTrabajadas((Employee*)empleadoB,&horasTrabadasB);
+        auxEmployee1=(Employee*)empleadoA;
+        auxEmployee2=(Employee*)empleadoB;
 
+        employee_getHorasTrabajadas(auxEmployee1, &horasTrabadasA);
+        employee_getHorasTrabajadas(auxEmployee2, &horasTrabadasB);
 
-        retorno = horasTrabadasA - horasTrabadasB;
+        if(horasTrabadasA > horasTrabadasB)
+        {
+            retorno=1;
+        }
+        else if(horasTrabadasA < horasTrabadasB){
+            retorno=-1;
+        }else{
+            retorno = 0;
+        }
     }
+
+
+
 
     return retorno;
 }
 
 int employeeSortBySueldo(void* empleadoA, void* empleadoB)
 {
-    int retorno = 0;
+    int retorno=0;
     int sueldoA;
     int sueldoB;
+    Employee* auxEmployee1;
+    Employee* auxEmployee2;
+
 
     if(empleadoA!=NULL && empleadoB != NULL)
     {
-        employee_getSueldo((Employee*)empleadoA,&sueldoA);
-        employee_getSueldo((Employee*)empleadoB,&sueldoB);
+        auxEmployee1=(Employee*)empleadoA;
+        auxEmployee2=(Employee*)empleadoB;
 
+        employee_getSueldo(auxEmployee1, &sueldoA);
+        employee_getSueldo(auxEmployee2, &sueldoB);
 
-        retorno = sueldoA - sueldoB;
+        if(sueldoA > sueldoB)
+        {
+            retorno=1;
+        }
     }
+
 
     return retorno;
 }
@@ -101,7 +126,7 @@ int employee_getId(Employee* employeeList,int* id)
 {
         int todoOk =0;
 
-    if(employeeList != NULL && id != NULL)
+    if(employeeList != NULL)
     {
         *id = employeeList->id;
         todoOk = 1;
@@ -245,4 +270,113 @@ int mostrarEmpleado(Employee* pEmp)
 
 
     return error;
+}
+
+int employee_buscarId(LinkedList* pArrayListEmployee, int id)
+{
+    Employee* employee;
+    int auxId;
+    int i;
+    int index=-1;
+    int size;
+
+    if(pArrayListEmployee != NULL)
+    {
+        size=ll_len(pArrayListEmployee);
+
+        for(i=0; i<size; i++)
+        {
+            employee=(Employee*)ll_get(pArrayListEmployee, i);
+            employee_getId(employee, &auxId);
+
+            if(id == auxId){
+                index=i;
+                break;
+            }
+        }
+    }
+    return index;
+
+}
+
+int employee_delete(LinkedList* pArrayListEmployee, int index)
+{
+    int retorno=-2;
+    Employee* employee;
+    char confirmation[100];
+
+    if(pArrayListEmployee != NULL)
+    {
+            employee=(Employee*)ll_get(pArrayListEmployee, index);
+            mostrarEmpleado(employee);
+
+            printf("Seguro que desea eliminar al empleado? si o no\n");
+            fflush(stdin);
+            gets(confirmation);
+            if(stricmp(confirmation, "si")==0)
+            {
+                retorno=1;
+                ll_remove(pArrayListEmployee, index);
+            }
+    }else{
+        retorno=0;
+    }
+    return retorno;
+}
+
+
+int employee_edit(LinkedList* pArrayListEmployee, int index)
+{
+    int retorno=-2;
+    int option;
+    Employee* employee;
+    char name[100];
+    int hoursWorked;
+    int salary;
+
+    if(pArrayListEmployee != NULL)
+    {
+        employee=(Employee*)ll_get(pArrayListEmployee, index);
+        if(employee!=NULL)
+        {
+            employee_getHorasTrabajadas(employee, &hoursWorked);
+            employee_getSueldo(employee, &salary);
+            employee_getNombre(employee, name);
+
+            do{
+                printf("MENU DE MODIFICACIONES\n\n1.Nombre\n2.Horas trabajadas\n3.Salario\n4.Salir\n\n");
+                printf("Ingrese una opcion: ");
+                scanf("%d", &option);
+
+                switch(option){
+                    case 1:
+                        printf("Ingrese nuevo nombre: ");
+                        fflush(stdin);
+                        gets(name);
+                        employee_setNombre(employee, name);
+                        break;
+                    case 2:
+                        printf("Ingrese nuevas horas trabajadas del empleado: ");
+                        scanf("%d", &hoursWorked);
+                        employee_setHorasTrabajadas(employee, hoursWorked);
+                        break;
+                    case 3:
+                        printf("Ingrese nuevo salario del empleado: ");
+                        scanf("%d", &salary);
+                        employee_setSueldo(employee, salary);
+                        break;
+                    case 4:
+                                retorno=0;
+                        break;
+
+                }
+            system("pause");
+            system("cls");
+
+            }while(option != 4);
+        }else{
+            retorno=0;
+        }
+    }
+    return retorno;
 }
