@@ -58,7 +58,7 @@ int controller_loadFromBinary(char* path , LinkedList* pArrayListEmployee)
 }
 
 
-int controller_addEmployee(LinkedList* pArrayListEmployee, int sigID)
+int controller_addEmployee(LinkedList* pArrayListEmployee)
 {
     int retorno = 0;
     Employee* employee;
@@ -72,11 +72,12 @@ int controller_addEmployee(LinkedList* pArrayListEmployee, int sigID)
         employee = newEmpleado();
         if(employee != NULL)
         {
-            id= sigID;
+
+            id = ll_len(pArrayListEmployee);
             printf("Su id es: %d\n", id);
             printf("Ingrese un nombre: ");
             fflush(stdin);
-            puts(nombre);
+            gets(nombre);
             printf("Ingrese las horas trabajadas: ");
             scanf("%d", &horasTrabajadas);
             printf("Ingrese el sueldo: ");
@@ -89,6 +90,7 @@ int controller_addEmployee(LinkedList* pArrayListEmployee, int sigID)
             {
                 ll_add(pArrayListEmployee, employee);
                 retorno=1;
+                printf("Empleado agregado con exito\n");
             }
 
         }
@@ -220,7 +222,10 @@ int controller_saveAsText(char* path , LinkedList* pArrayListEmployee)
         if(textFile!= NULL)
         {
             retorno=parser_EmployeeToText(textFile, pArrayListEmployee);
+            printf("Archivo guardado con exito\n");
         }
+    }else{
+        printf("No se pudo guardar el archivo\n");
     }
     return retorno;
 }
@@ -237,7 +242,10 @@ int controller_saveAsBinary(char* path , LinkedList* pArrayListEmployee)
         if(binaryFile!=NULL)
         {
             retorno=parser_EmployeeToBinary(binaryFile, pArrayListEmployee);
+            printf("Archivo guardado con exito\n");
         }
+    }else{
+        printf("No se pudo guardar el archivo\n");
     }
 
     return retorno;

@@ -21,7 +21,7 @@ int controller_loadFromBinary(char* path , LinkedList* pArrayListEmployee);
  * \return int
  *
  */
-int controller_addEmployee(LinkedList* pArrayListEmployee, int sigID);
+int controller_addEmployee(LinkedList* pArrayListEmployee);
 
 int controller_editEmployee(LinkedList* pArrayListEmployee);
 

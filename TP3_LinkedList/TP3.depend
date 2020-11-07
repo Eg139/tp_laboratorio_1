@@ -212,7 +212,7 @@
 
 1604301174 c:\users\usuario\desktop\utn\programacion\tp3_cascara\win_64\parser.h
 
-1604703257 source:c:\users\usuario\desktop\utn\programacion\tp3_linkedlist\controller.c
+1604709862 source:c:\users\usuario\desktop\utn\programacion\tp3_linkedlist\controller.c
 	<stdio.h>
 	<stdlib.h>
 	"LinkedList.h"
@@ -223,7 +223,7 @@
 
 1604702947 c:\users\usuario\desktop\utn\programacion\tp3_linkedlist\employee.h
 
-1604698414 c:\users\usuario\desktop\utn\programacion\tp3_linkedlist\parser.h
+1604703408 c:\users\usuario\desktop\utn\programacion\tp3_linkedlist\parser.h
 
 1604702404 source:c:\users\usuario\desktop\utn\programacion\tp3_linkedlist\employee.c
 	"Employee.h"
@@ -231,16 +231,16 @@
 	<stdlib.h>
 	<string.h>
 
-1604707370 source:c:\users\usuario\desktop\utn\programacion\tp3_linkedlist\main.c
+1604709884 source:c:\users\usuario\desktop\utn\programacion\tp3_linkedlist\main.c
 	<stdio.h>
 	<stdlib.h>
 	"LinkedList.h"
 	"Controller.h"
 	"Employee.h"
 
-1604707262 c:\users\usuario\desktop\utn\programacion\tp3_linkedlist\controller.h
+1604709851 c:\users\usuario\desktop\utn\programacion\tp3_linkedlist\controller.h
 
-1604703402 source:c:\users\usuario\desktop\utn\programacion\tp3_linkedlist\parser.c
+1604708901 source:c:\users\usuario\desktop\utn\programacion\tp3_linkedlist\parser.c
 	<stdio.h>
 	<stdlib.h>
 	"LinkedList.h"
