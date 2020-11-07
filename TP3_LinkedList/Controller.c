@@ -100,13 +100,7 @@ int controller_addEmployee(LinkedList* pArrayListEmployee)
     return retorno;
 }
 
-/** \brief Modificar datos de empleado
- *
- * \param path char*
- * \param pArrayListEmployee LinkedList*
- * \return int
- *
- */
+
 int controller_editEmployee(LinkedList* pArrayListEmployee)
 {
     int retorno=-1;

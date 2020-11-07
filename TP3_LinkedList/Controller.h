@@ -25,6 +25,13 @@ int controller_loadFromBinary(char* path , LinkedList* pArrayListEmployee);
  */
 int controller_addEmployee(LinkedList* pArrayListEmployee);
 
+/** \brief Modificar datos de empleado
+ *
+ * \param path char*
+ * \param pArrayListEmployee LinkedList*
+ * \return int
+ *
+ */
 int controller_editEmployee(LinkedList* pArrayListEmployee);
 
 /** \brief Baja de empleado
