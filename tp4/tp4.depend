@@ -1,0 +1,85 @@
+# depslib dependency file v1.0
+1606151093 source:c:\users\usuario\desktop\utn\programacion\tp4\controller.c
+	<stdio.h>
+	<stdlib.h>
+	"LinkedList.h"
+	"Employee.h"
+	"parser.h"
+
+1606144130 c:\users\usuario\desktop\utn\programacion\tp4\linkedlist.h
+
+1606148886 c:\users\usuario\desktop\utn\programacion\tp4\employee.h
+	"LinkedList.h"
+
+1604716956 c:\users\usuario\desktop\utn\programacion\tp4\parser.h
+
+1606149067 source:c:\users\usuario\desktop\utn\programacion\tp4\employee.c
+	"Employee.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1604717237 source:c:\users\usuario\desktop\utn\programacion\tp4\parser.c
+	<stdio.h>
+	<stdlib.h>
+	"LinkedList.h"
+	"Employee.h"
+	"Controller.h"
+
+1606150949 c:\users\usuario\desktop\utn\programacion\tp4\controller.h
+
+1606061510 source:c:\users\usuario\desktop\utn\programacion\tp4\tp4\controller.c
+	<stdio.h>
+	<stdlib.h>
+	"LinkedList.h"
+	"Employee.h"
+	"parser.h"
+
+1606061896 c:\users\usuario\desktop\utn\programacion\tp4\tp4\linkedlist.h
+
+1606064374 c:\users\usuario\desktop\utn\programacion\tp4\tp4\employee.h
+	"LinkedList.h"
+
+1604716956 c:\users\usuario\desktop\utn\programacion\tp4\tp4\parser.h
+
+1605903870 source:c:\users\usuario\desktop\utn\programacion\tp4\tp4\linkedlist.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"LinkedList.h"
+
+1606064419 source:c:\users\usuario\desktop\utn\programacion\tp4\tp4\main.c
+	<stdio.h>
+	<stdlib.h>
+	"LinkedList.h"
+	"Controller.h"
+	"Employee.h"
+
+1606061505 c:\users\usuario\desktop\utn\programacion\tp4\tp4\controller.h
+
+1604717237 source:c:\users\usuario\desktop\utn\programacion\tp4\tp4\parser.c
+	<stdio.h>
+	<stdlib.h>
+	"LinkedList.h"
+	"Employee.h"
+	"Controller.h"
+
+1606064346 source:c:\users\usuario\desktop\utn\programacion\tp4\tp4\employee.c
+	"Employee.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1606148540 source:c:\users\usuario\desktop\utn\programacion\tp4\linkedlist.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"LinkedList.h"
+
+1606151083 source:c:\users\usuario\desktop\utn\programacion\tp4\main.c
+	<stdio.h>
+	<stdlib.h>
+	"LinkedList.h"
+	"Controller.h"
+	"Employee.h"
+
