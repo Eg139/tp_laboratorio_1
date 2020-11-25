@@ -23,9 +23,12 @@ int employeeSortById(void* empleadoA, void* empleadoB)
         {
             ret=1;
         }
-        else if(id1 < id2){
+        else if(id1 < id2)
+        {
             ret=-1;
-        }else{
+        }
+        else
+        {
             ret = 0;
         }
     }
@@ -68,9 +71,12 @@ int employeeSortByHorasTrabajadas(void* empleadoA, void* empleadoB)
         {
             retorno=1;
         }
-        else if(horasTrabadasA < horasTrabadasB){
+        else if(horasTrabadasA < horasTrabadasB)
+        {
             retorno=-1;
-        }else{
+        }
+        else
+        {
             retorno = 0;
         }
     }
@@ -110,9 +116,9 @@ int employeeSortBySueldo(void* empleadoA, void* empleadoB)
 
 int employee_setId(Profesor* employee,int id)
 {
-        int todoOk =0;
+    int todoOk =0;
 
-   if(employee != NULL && id > 0)
+    if(employee != NULL && id > 0)
     {
         employee ->id = id;
         todoOk = 1;
@@ -122,7 +128,7 @@ int employee_setId(Profesor* employee,int id)
 }
 int employee_getId(Profesor* employeeList,int* id)
 {
-        int todoOk =0;
+    int todoOk =0;
 
     if(employeeList != NULL)
     {
@@ -135,7 +141,7 @@ int employee_getId(Profesor* employeeList,int* id)
 
 int employee_setNombre(Profesor* employee,char* nombre)
 {
-        int todoOk =0;
+    int todoOk =0;
 
     if(employee != NULL && nombre != NULL)
     {
@@ -172,7 +178,7 @@ int employee_setHorasTrabajadas(Profesor* employee,int horasTrabajadas)
 }
 int employee_getHorasTrabajadas(Profesor* employeeList,int* horasTrabajadas)
 {
-        int todoOk =0;
+    int todoOk =0;
 
     if(employeeList != NULL && horasTrabajadas != NULL)
     {
@@ -197,7 +203,7 @@ int employee_setSueldo(Profesor* employee,int sueldo)
 }
 int employee_getSueldo(Profesor* employeeList,int* sueldo)
 {
-        int todoOk =0;
+    int todoOk =0;
 
     if(employeeList != NULL && sueldo != NULL)
     {
@@ -258,7 +264,7 @@ int mostrarEmpleado(Profesor* pEmp)
     if(pEmp!=NULL)
     {
         if(employee_getId(pEmp, &id)==1 && employee_getSueldo(pEmp, &salary)==1 &&
-           employee_getHorasTrabajadas(pEmp, &hoursWorked)==1 &&employee_getNombre(pEmp, name)==1 )
+                employee_getHorasTrabajadas(pEmp, &hoursWorked)==1 &&employee_getNombre(pEmp, name)==1 )
         {
             printf("|%10d|%20s|%13d|%10d|\n", id, name, hoursWorked, salary);
             error=1;
@@ -287,7 +293,8 @@ int employee_buscarId(LinkedList* pArrayListEmployee, int id)
             employee=(Profesor*)ll_get(pArrayListEmployee, i);
             employee_getId(employee, &auxId);
 
-            if(id == auxId){
+            if(id == auxId)
+            {
                 index=i;
                 break;
             }
@@ -305,18 +312,20 @@ int employee_delete(LinkedList* pArrayListEmployee, int index)
 
     if(pArrayListEmployee != NULL)
     {
-            employee=(Profesor*)ll_get(pArrayListEmployee, index);
-            mostrarEmpleado(employee);
+        employee=(Profesor*)ll_get(pArrayListEmployee, index);
+        mostrarEmpleado(employee);
 
-            printf("Seguro que desea eliminar al empleado? si o no\n");
-            fflush(stdin);
-            gets(confirmation);
-            if(stricmp(confirmation, "si")==0)
-            {
-                retorno=1;
-                ll_remove(pArrayListEmployee, index);
-            }
-    }else{
+        printf("Seguro que desea eliminar al empleado? si o no\n");
+        fflush(stdin);
+        gets(confirmation);
+        if(stricmp(confirmation, "si")==0)
+        {
+            retorno=1;
+            ll_remove(pArrayListEmployee, index);
+        }
+    }
+    else
+    {
         retorno=0;
     }
     return retorno;
@@ -331,44 +340,54 @@ int employee_edit(LinkedList* pArrayListEmployee, int index)
     char name[100];
     int hoursWorked;
     int salary;
+    system("cls");
 
     if(pArrayListEmployee != NULL)
     {
         employee=(Profesor*)ll_get(pArrayListEmployee, index);
+
         if(employee!=NULL)
         {
+            printf("\n");
+            mostrarEmpleado(employee);
+            printf("\n\n");
             employee_getHorasTrabajadas(employee, &hoursWorked);
             employee_getSueldo(employee, &salary);
             employee_getNombre(employee, name);
 
-            do{
+            do
+            {
                 printf("MENU DE MODIFICACIONES\n\n1.Nombre\n2.Horas trabajadas\n3.Salario\n4.Salir\n\n");
                 utn_getNumeroEntero(&option,"Ingrese una opcion: ","Opcion invalida, Reingrese una opcion: ", 1,4,3);
 
-                switch(option){
-                    case 1:
-                        utn_getString(name,"Ingrese nuevo nombre: ","Dato invalido, Reingrese un nombre: ",3);
-                        employee_setNombre(employee, name);
-                        break;
-                    case 2:
-                        utn_getNumeroEntero(&hoursWorked,"Ingrese nuevas horas trabajadas del empleado: ","Dato invalido, Reingrese una la carga horaria: ", 1,9000,3);
-                        employee_setHorasTrabajadas(employee, hoursWorked);
-                        break;
-                    case 3:
-                        utn_getNumeroEntero(&salary,"Ingrese nuevo salario del empleado: ","Salario invalido, Reingrese el nuevo dalario: ", 1,900000,3);
-                        employee_setSueldo(employee, salary);
-                        break;
-                    case 4:
-                        printf("Saliendo del Menu modificar\n\n");
-                                retorno=0;
-                        break;
+                switch(option)
+                {
+                case 1:
+                    utn_getString(name,"Ingrese nuevo nombre: ","Dato invalido, Reingrese un nombre: ",3);
+                    employee_setNombre(employee, name);
+                    break;
+                case 2:
+                    utn_getNumeroEntero(&hoursWorked,"Ingrese nuevas horas trabajadas del empleado: ","Dato invalido, Reingrese una la carga horaria: ", 1,9000,3);
+                    employee_setHorasTrabajadas(employee, hoursWorked);
+                    break;
+                case 3:
+                    utn_getNumeroEntero(&salary,"Ingrese nuevo salario del empleado: ","Salario invalido, Reingrese el nuevo dalario: ", 1,900000,3);
+                    employee_setSueldo(employee, salary);
+                    break;
+                case 4:
+                    printf("Saliendo del Menu modificar\n\n");
+                    retorno=0;
+                    break;
 
                 }
-            system("pause");
-            system("cls");
+                system("pause");
+                system("cls");
 
-            }while(option != 4);
-        }else{
+            }
+            while(option != 4);
+        }
+        else
+        {
             retorno=0;
         }
     }
@@ -381,14 +400,16 @@ int employeList_compare(LinkedList* this, LinkedList* this2)
 
     if(this != NULL && this2 != NULL)
     {
-     if(ll_containsAll(this,this2)==1)
-     {
-         retorno = 0;
-         printf("La lista 2 pertenece a la lista 1\n");
-     }else{
-         printf("La lista 2 no pertenece a la lista 1\n");
-         retorno = 1;
-     }
+        if(ll_containsAll(this,this2)==1)
+        {
+            retorno = 0;
+            printf("La lista 2 pertenece a la lista 1\n");
+        }
+        else
+        {
+            printf("La lista 2 no pertenece a la lista 1\n");
+            retorno = 1;
+        }
     }
     return retorno;
 }

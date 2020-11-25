@@ -192,15 +192,19 @@ int controller_sortEmployee(LinkedList* pArrayListEmployee)
         {
         case 1:
             ll_sort(auxiliar,employeeSortById,0);
+            printf("Ordenados correctamente");
             break;
         case 2:
             ll_sort(auxiliar,employeeSortByName,1);
+            printf("Ordenados correctamente");
             break;
         case 3:
             ll_sort(auxiliar,employeeSortByHorasTrabajadas,1);
+            printf("Ordenados correctamente");
             break;
         case 4:
             ll_sort(auxiliar,employeeSortBySueldo,1);
+            printf("Ordenados correctamente");
             break;
         case 5:
             printf("Saliendo del menu de ordenamiento\n");

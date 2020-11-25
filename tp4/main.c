@@ -89,7 +89,8 @@ int main()
             }
             else
             {
-                listaEmpleados2 = ll_subList(listaEmpleados,900,ll_len(listaEmpleados));
+                listaEmpleados2 = ll_subList(listaEmpleados,980,ll_len(listaEmpleados));
+                controller_ListEmployee(listaEmpleados2);
                 employeList_compare(listaEmpleados,listaEmpleados2);
             }
 
