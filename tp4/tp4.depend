@@ -1,25 +1,27 @@
 # depslib dependency file v1.0
-1606151093 source:c:\users\usuario\desktop\utn\programacion\tp4\controller.c
+1606269272 source:c:\users\usuario\desktop\utn\programacion\tp4\controller.c
 	<stdio.h>
 	<stdlib.h>
 	"LinkedList.h"
 	"Employee.h"
 	"parser.h"
+	"utn.h"
 
 1606144130 c:\users\usuario\desktop\utn\programacion\tp4\linkedlist.h
 
-1606148886 c:\users\usuario\desktop\utn\programacion\tp4\employee.h
+1606269250 c:\users\usuario\desktop\utn\programacion\tp4\employee.h
 	"LinkedList.h"
 
 1604716956 c:\users\usuario\desktop\utn\programacion\tp4\parser.h
 
-1606149067 source:c:\users\usuario\desktop\utn\programacion\tp4\employee.c
+1606269357 source:c:\users\usuario\desktop\utn\programacion\tp4\employee.c
 	"Employee.h"
+	"utn.h"
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 
-1604717237 source:c:\users\usuario\desktop\utn\programacion\tp4\parser.c
+1606269322 source:c:\users\usuario\desktop\utn\programacion\tp4\parser.c
 	<stdio.h>
 	<stdlib.h>
 	"LinkedList.h"
@@ -76,10 +78,21 @@
 	<string.h>
 	"LinkedList.h"
 
-1606151083 source:c:\users\usuario\desktop\utn\programacion\tp4\main.c
+1606266521 source:c:\users\usuario\desktop\utn\programacion\tp4\main.c
 	<stdio.h>
 	<stdlib.h>
 	"LinkedList.h"
 	"Controller.h"
 	"Employee.h"
+	"utn.h"
+
+1606261951 source:c:\users\usuario\desktop\utn\programacion\tp4\utn.c
+	<stdlib.h>
+	<stdio.h>
+	<string.h>
+	"utn.h"
+	<ctype.h>
+	<conio.h>
+
+1606261961 c:\users\usuario\desktop\utn\programacion\tp4\utn.h
 

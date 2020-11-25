@@ -3,7 +3,7 @@
 #include "LinkedList.h"
 #include "Employee.h"
 #include "parser.h"
-
+#include "utn.h"
 
 
 int controller_loadFromText(char* path , LinkedList* pArrayListEmployee)
@@ -61,7 +61,7 @@ int controller_loadFromBinary(char* path , LinkedList* pArrayListEmployee)
 int controller_addEmployee(LinkedList* pArrayListEmployee)
 {
     int retorno = 0;
-    Employee* employee;
+    Profesor* employee;
     int id;
     char nombre[20];
     int horasTrabajadas;
@@ -75,14 +75,9 @@ int controller_addEmployee(LinkedList* pArrayListEmployee)
 
             id = ll_len(pArrayListEmployee);
             printf("Su id es: %d\n", id);
-            printf("Ingrese un nombre: ");
-            fflush(stdin);
-            gets(nombre);
-            printf("Ingrese las horas trabajadas: ");
-            scanf("%d", &horasTrabajadas);
-            printf("Ingrese el sueldo: ");
-            scanf("%d", &sueldo);
-
+            utn_getString(nombre,"Ingrese un nombre: ","Ingrese un valor valido, Porfavor ingrese un nombre: ",3);
+            utn_getNumeroEntero(&horasTrabajadas,"Ingrese las horas trabajadas: ","No es un numero, Porfavor ingrese las horas trabajadas: ",1,1000,3);
+            utn_getNumeroEntero(&sueldo,"Ingrese el sueldo: ","Valor incorrecto, ingrese un sueldo valido ",1,900000,3);
             if(employee_setId(employee, id)==1 &&
                employee_setNombre(employee, nombre)==1 &&
                employee_setHorasTrabajadas(employee, horasTrabajadas)==1 &&
@@ -109,8 +104,7 @@ int controller_editEmployee(LinkedList* pArrayListEmployee)
 
     if(pArrayListEmployee != NULL)
     {
-        printf("Ingrese el id a modificar: ");
-        scanf("%d", &id);
+        utn_getNumeroEntero(&id,"Ingrese el id a modificar: ","Porfavor ingrese un id valido, reingrese el Id: ",1,ll_len(pArrayListEmployee),5);
         index= employee_buscarId(pArrayListEmployee, id);
 
         if(index != -1)
@@ -134,8 +128,7 @@ int controller_removeEmployee(LinkedList* pArrayListEmployee)
 
     if(pArrayListEmployee != NULL)
     {
-        printf("Ingrese el Id del empleado que quiere elimininar: ");
-        scanf("%d", &id);
+        utn_getNumeroEntero(&id,"Ingrese el id a eliminar: ","Porfavor ingrese un id valido, reingrese el Id: ",1,ll_len(pArrayListEmployee),5);
         index= employee_buscarId(pArrayListEmployee, id);
         if(index!=-1)
         {
@@ -153,7 +146,7 @@ int controller_ListEmployee(LinkedList* pArrayListEmployee)
     int i;
     int retorno=0;
     int size;
-    Employee* aux;
+    Profesor* aux;
 
     if(pArrayListEmployee != NULL)
     {
@@ -165,7 +158,7 @@ int controller_ListEmployee(LinkedList* pArrayListEmployee)
                    "|__________|____________________|_____________|__________|\n");
             for(i=0; i<size; i++)
             {
-                aux =(Employee*)ll_get(pArrayListEmployee, i);
+                aux =(Profesor*)ll_get(pArrayListEmployee, i);
                 mostrarEmpleado(aux);
             }
                 printf("|__________|____________________|_____________|__________|\n");
@@ -194,8 +187,7 @@ int controller_sortEmployee(LinkedList* pArrayListEmployee)
         system("cls");
 
         printf("  ****  Menu de Ordenamiento ****\n\n 1. Ordenar por ID.\n2. Ordenar por Nombre.\n3. Ordenar por Horas trabajadas\n4. Ordenar por sueldo\n5. Salir \n\n");
-        printf("Ingrese una opcion: ");
-        scanf("%d", &option);
+        utn_getNumeroEntero(&option,"Ingrese una opcion valida: ","Porfavor ingrese una opcion valida, reingrese la opcion: ",1,5,3);
         switch(option)
         {
         case 1:
@@ -278,13 +270,8 @@ int controller_pop(LinkedList* this)
 {
     int retorno = 0;
     int index;
-    printf("Ingrese el Id que desea eliminar 0 a 1000: ");
-    scanf("%d", &index);
-    while(index< 0 && index>ll_len(this))
-    {
-        printf("Ingrese un Id valido 0 a 1000: ");
-        scanf("%d", &index);
-    }
+    utn_getNumeroEntero(&index,"Ingrese el Id que desea eliminar 0 a 1000: ","Id fuera de lo indicado, Reingrese el Id: ",1,ll_len(this),3);
+
     if(this != NULL)
     {
         retorno = (int)ll_pop(this,index);
@@ -303,7 +290,6 @@ int controller_filter(LinkedList* this)
     if(this != NULL)
     {
         aux = ll_filter(this,filtrar_horasTrabajadas);
-
         if(aux != NULL)
         {
             controller_ListEmployee(aux);

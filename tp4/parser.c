@@ -9,7 +9,7 @@
 int parser_EmployeeFromText(FILE* pFile , LinkedList* pArrayListEmployee)
 {
 
-    Employee* auxEmployee;
+    Profesor* auxEmployee;
     int maxId=0;
     char idStr[30];
     char nombreStr[30];
@@ -47,7 +47,7 @@ int parser_EmployeeFromText(FILE* pFile , LinkedList* pArrayListEmployee)
 int parser_EmployeeFromBinary(FILE* pFile , LinkedList* pArrayListEmployee)
 {
 
-    Employee* employee;
+    Profesor* employee;
     int maxId=0;
     int id;
 
@@ -61,7 +61,7 @@ int parser_EmployeeFromBinary(FILE* pFile , LinkedList* pArrayListEmployee)
             employee=newEmpleado();
             if(employee!=NULL)
             {
-                if(fread(employee,sizeof(Employee),1,pFile)==1)
+                if(fread(employee,sizeof(Profesor),1,pFile)==1)
                 {
                     ll_add(pArrayListEmployee,employee);
                     employee_getId(employee, &id);
@@ -82,7 +82,7 @@ int parser_EmployeeFromBinary(FILE* pFile , LinkedList* pArrayListEmployee)
 
 int parser_EmployeeToBinary(FILE* pFile , LinkedList* pArrayListEmployee)
 {
-    Employee* employee;
+    Profesor* employee;
     int size;
     int i;
     int retorno=0;
@@ -94,8 +94,8 @@ int parser_EmployeeToBinary(FILE* pFile , LinkedList* pArrayListEmployee)
 
         for(i=0; i<size; i++)
         {
-            employee=(Employee*)ll_get(pArrayListEmployee, i);
-            fwrite(employee, sizeof(Employee),1,pFile);
+            employee=(Profesor*)ll_get(pArrayListEmployee, i);
+            fwrite(employee, sizeof(Profesor),1,pFile);
         }
         fclose(pFile);
         retorno=1;
@@ -104,7 +104,7 @@ int parser_EmployeeToBinary(FILE* pFile , LinkedList* pArrayListEmployee)
 }
 int parser_EmployeeToText(FILE* pFile , LinkedList* pArrayListEmployee)
 {
-    Employee* employee;
+    Profesor* employee;
     int i;
     int size;
     int id;
@@ -120,7 +120,7 @@ int parser_EmployeeToText(FILE* pFile , LinkedList* pArrayListEmployee)
         size=ll_len(pArrayListEmployee);
         for(i=0; i<size; i++)
         {
-            employee=(Employee*)ll_get(pArrayListEmployee, i);
+            employee=(Profesor*)ll_get(pArrayListEmployee, i);
 
             if(employee_getId(employee, &id)==1 && employee_getHorasTrabajadas(employee, &horas)==1 &&
                employee_getNombre(employee, nombre)==1 && employee_getSueldo(employee, &sueldo)==1)

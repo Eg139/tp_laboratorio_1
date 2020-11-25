@@ -8,91 +8,91 @@ typedef struct
     char nombre[128];
     int horasTrabajadas;
     int sueldo;
-}Employee;
+}Profesor;
 
 /** \brief crea un nuevo empleado inicializado en vacio
  *
- * \return Employee*
+ * \return Profesor*
  *
  */
-Employee* newEmpleado();
+Profesor* newEmpleado();
 /** \brief crea un nuevo empleado con valores
  *
  * \param idStr char*
  * \param nombreStr char*
  * \param horasTrabajadasStr char*
- * \return Employee*
+ * \return Profesor*
  *
  */
-Employee* newEmpleadoParam(char* id, char* nombre, char* horasTrabajadas, char* sueldo);
+Profesor* newEmpleadoParam(char* id, char* nombre, char* horasTrabajadas, char* sueldo);
 
 /** \brief id setter
  *
- * \param employee Employee*
+ * \param employee Profesor*
  * \param id int
  * \return int
  *
  */
-int employee_setId(Employee* employee,int id);
+int employee_setId(Profesor* employee,int id);
 /** \brief id getter
  *
- * \param employeeList Employee*
+ * \param employeeList Profesor*
  * \param id int*
  * \return int
  *
  */
-int employee_getId(Employee* employeeList,int* id);
+int employee_getId(Profesor* employeeList,int* id);
 
 /** \brief nombre setter
  *
- * \param employee Employee*
+ * \param employee Profesor*
  * \param nombre char*
  * \return int
  *
  */
-int employee_setNombre(Employee* employee,char* nombre);
+int employee_setNombre(Profesor* employee,char* nombre);
 /** \brief nombre getter
  *
- * \param employeeList Employee*
+ * \param employeeList Profesor*
  * \param nombre char*
  * \return int
  *
  */
-int employee_getNombre(Employee* employeeList,char* nombre);
+int employee_getNombre(Profesor* employeeList,char* nombre);
 
 /** \brief horas setter
  *
- * \param employee Employee*
+ * \param employee Profesor*
  * \param horasTrabajadas int
  * \return int
  *
  */
-int employee_setHorasTrabajadas(Employee* employee,int horasTrabajadas);
+int employee_setHorasTrabajadas(Profesor* employee,int horasTrabajadas);
 /** \brief horas getter
  *
- * \param employeeList Employee*
+ * \param employeeList Profesor*
  * \param horasTrabajadas int*
  * \return int
  *
  */
-int employee_getHorasTrabajadas(Employee* employeeList,int* horasTrabajadas);
+int employee_getHorasTrabajadas(Profesor* employeeList,int* horasTrabajadas);
 
 /** \brief sueldo setter
  *
- * \param employee Employee*
+ * \param employee Profesor*
  * \param sueldo int
  * \return int
  *
  */
-int employee_setSueldo(Employee* employee,int sueldo);
+int employee_setSueldo(Profesor* employee,int sueldo);
 /** \brief sueldo getter
  *
- * \param employeeList Employee*
+ * \param employeeList Profesor*
  * \param sueldo int*
  * \return int
  *
  */
-int employee_getSueldo(Employee* employeeList,int* sueldo);
+int employee_getSueldo(Profesor* employeeList,int* sueldo);
 
 /** \brief compara los nombres para luego ordenarlos
  *
@@ -130,11 +130,11 @@ int employeeSortBySueldo(void* empleadoA, void* empleadoB);
 
 /** \brief muestra a un empleado
  *
- * \param pEmp Employee*
+ * \param pEmp Profesor*
  * \return int
  *
  */
-int mostrarEmpleado(Employee* pEmp);
+int mostrarEmpleado(Profesor* pEmp);
 /** \brief busca el id de un empleado
  *
  * \param pArrayListEmployee LinkedList*
@@ -165,5 +165,6 @@ int employeList_compare(LinkedList* this, LinkedList* this2);
 int sobreescribir_employee(LinkedList* this);
 
 int filtrar_horasTrabajadas(void* emp);
+//int filtrar_Sueldo(void* emp);
 
 #endif // employee_H_INCLUDED

@@ -3,6 +3,7 @@
 #include "LinkedList.h"
 #include "Controller.h"
 #include "Employee.h"
+#include "utn.h"
 
 void menu();
 
@@ -12,60 +13,150 @@ int main()
 
     LinkedList* listaEmpleados = ll_newLinkedList();
     LinkedList* listaEmpleados2 = ll_newLinkedList();
+    int flag=0;
     do
     {
         menu();
-        printf("Ingrese una opcion: ");
-        scanf("%d", &option);
+        utn_getNumeroEntero(&option,"Ingrese una opcion: ","Opcion incorrecta, Ingrese una opcion valida\n",1,14,3);
         switch(option)
         {
         case 1:
             controller_loadFromText("data.csv",listaEmpleados);
+            flag =1;
             break;
         case 2:
             controller_loadFromBinary("data.bin",listaEmpleados);
+            flag =1;
             break;
         case 3:
-            controller_addEmployee(listaEmpleados);
+            if(flag==0)
+            {
+                printf("Debe cargar la Lista antes de poder iterar\n");
+            }
+            else
+            {
+                controller_addEmployee(listaEmpleados);
+            }
+
             break;
         case 4:
-            controller_editEmployee(listaEmpleados);
+            if(flag==0)
+            {
+                printf("Debe cargar la Lista antes de poder iterar\n");
+            }
+            else
+            {
+                controller_editEmployee(listaEmpleados);
+            }
             break;
         case 5:
-            controller_removeEmployee(listaEmpleados);
+            if(flag==0)
+            {
+                printf("Debe cargar la Lista antes de poder iterar\n");
+            }
+            else
+            {
+                controller_removeEmployee(listaEmpleados);
+            }
+
             break;
         case 6:
-            controller_ListEmployee(listaEmpleados);
+            if(flag==0)
+            {
+                printf("Debe cargar la Lista antes de poder iterar\n");
+            }
+            else
+            {
+                controller_ListEmployee(listaEmpleados);
+            }
+
             break;
         case 7:
-            controller_sortEmployee(listaEmpleados);
+            if(flag==0)
+            {
+                printf("Debe cargar la Lista antes de poder iterar\n");
+            }
+            else
+            {
+                controller_sortEmployee(listaEmpleados);
+            }
+
             break;
         case 8:
-            listaEmpleados2 = ll_subList(listaEmpleados,900,ll_len(listaEmpleados));
-            employeList_compare(listaEmpleados,listaEmpleados2);
+            if(flag==0)
+            {
+                printf("Debe cargar la Lista antes de poder iterar\n");
+            }
+            else
+            {
+                listaEmpleados2 = ll_subList(listaEmpleados,900,ll_len(listaEmpleados));
+                employeList_compare(listaEmpleados,listaEmpleados2);
+            }
+
             break;
         case 9:
-            sobreescribir_employee(listaEmpleados);
+            if(flag==0)
+            {
+                printf("Debe cargar la Lista antes de poder iterar\n");
+            }
+            else
+            {
+                sobreescribir_employee(listaEmpleados);
+            }
+
             break;
         case 10:
-            controller_pop(listaEmpleados);
+            if(flag==0)
+            {
+                printf("Debe cargar la Lista antes de poder iterar\n");
+            }
+            else
+            {
+                controller_pop(listaEmpleados);
+            }
+
             break;
         case 11:
-            if(controller_filter(listaEmpleados)==0)
+            if(flag==0)
             {
-                printf("La lista se filtro con exito\n\n");
-            }else{
-                printf("La lista no se pudo filtrar\n\n");
+                printf("Debe cargar la Lista antes de poder iterar\n");
+            }
+            else
+            {
+                if(controller_filter(listaEmpleados)==0)
+                {
+                    printf("La lista se filtro con exito para empleados que trabajaron mas de 300 horas\n\n");
+                }
+                else
+                {
+                    printf("La lista no se pudo filtrar\n\n");
+                }
             }
 
             break;
         case 12:
-            controller_saveAsText("data.csv",listaEmpleados);
+            if(flag==0)
+            {
+                printf("Debe cargar la Lista antes de poder iterar\n");
+            }
+            else
+            {
+                controller_saveAsText("data.csv",listaEmpleados);
+            }
+
             break;
         case 13:
-            controller_saveAsBinary("data.bin",listaEmpleados);
+            if(flag==0)
+            {
+                printf("Debe cargar la Lista antes de poder iterar\n");
+            }
+            else
+            {
+                controller_saveAsBinary("data.bin",listaEmpleados);
+            }
+
             break;
-        case 15:
+        case 14:
             printf("Saliendo del programa....\n");
             break;
         default:
@@ -75,7 +166,7 @@ int main()
         system("pause");
         system("cls");
     }
-    while(option != 15);
+    while(option != 14);
     free(listaEmpleados);
     free(listaEmpleados2);
     return 0;
@@ -98,7 +189,7 @@ void menu()
     printf("11. Filtrar por horas trabajadas\n");
     printf("12. Guardar los datos de los empleados en el archivo data.csv (modo texto).\n");
     printf("13. Guardar los datos de los empleados en el archivo data.bin (modo binario).\n");
-    printf("15. Salir \n\n");
+    printf("14. Salir \n\n");
 }
 
 

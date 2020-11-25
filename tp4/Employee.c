@@ -1,19 +1,20 @@
 #include "Employee.h"
+#include "utn.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
 int employeeSortById(void* empleadoA, void* empleadoB)
 {
-    Employee* auxEmployee1;
-    Employee* auxEmployee2;
+    Profesor* auxEmployee1;
+    Profesor* auxEmployee2;
     int id1;
     int id2;
     int ret;
     if(empleadoA != NULL && empleadoB != NULL)
     {
-        auxEmployee1=(Employee*)empleadoA;
-        auxEmployee2=(Employee*)empleadoB;
+        auxEmployee1=(Profesor*)empleadoA;
+        auxEmployee2=(Profesor*)empleadoB;
 
         employee_getId(auxEmployee1, &id1);
         employee_getId(auxEmployee2, &id2);
@@ -38,8 +39,8 @@ int employeeSortByName(void* empleadoA, void* empleadoB)
 
     if(empleadoA!=NULL && empleadoB != NULL)
     {
-        employee_getNombre((Employee*)empleadoA,nombreA);
-        employee_getNombre((Employee*)empleadoB,nombreB);
+        employee_getNombre((Profesor*)empleadoA,nombreA);
+        employee_getNombre((Profesor*)empleadoB,nombreB);
 
         retorno = strcmp(nombreA,nombreB);
     }
@@ -51,14 +52,14 @@ int employeeSortByHorasTrabajadas(void* empleadoA, void* empleadoB)
     int retorno;
     int horasTrabadasA;
     int horasTrabadasB;
-    Employee* auxEmployee1;
-    Employee* auxEmployee2;
+    Profesor* auxEmployee1;
+    Profesor* auxEmployee2;
 
 
     if(empleadoA!=NULL && empleadoB != NULL)
     {
-        auxEmployee1=(Employee*)empleadoA;
-        auxEmployee2=(Employee*)empleadoB;
+        auxEmployee1=(Profesor*)empleadoA;
+        auxEmployee2=(Profesor*)empleadoB;
 
         employee_getHorasTrabajadas(auxEmployee1, &horasTrabadasA);
         employee_getHorasTrabajadas(auxEmployee2, &horasTrabadasB);
@@ -85,14 +86,14 @@ int employeeSortBySueldo(void* empleadoA, void* empleadoB)
     int retorno=0;
     int sueldoA;
     int sueldoB;
-    Employee* auxEmployee1;
-    Employee* auxEmployee2;
+    Profesor* auxEmployee1;
+    Profesor* auxEmployee2;
 
 
     if(empleadoA!=NULL && empleadoB != NULL)
     {
-        auxEmployee1=(Employee*)empleadoA;
-        auxEmployee2=(Employee*)empleadoB;
+        auxEmployee1=(Profesor*)empleadoA;
+        auxEmployee2=(Profesor*)empleadoB;
 
         employee_getSueldo(auxEmployee1, &sueldoA);
         employee_getSueldo(auxEmployee2, &sueldoB);
@@ -107,7 +108,7 @@ int employeeSortBySueldo(void* empleadoA, void* empleadoB)
     return retorno;
 }
 
-int employee_setId(Employee* employee,int id)
+int employee_setId(Profesor* employee,int id)
 {
         int todoOk =0;
 
@@ -119,7 +120,7 @@ int employee_setId(Employee* employee,int id)
 
     return todoOk;
 }
-int employee_getId(Employee* employeeList,int* id)
+int employee_getId(Profesor* employeeList,int* id)
 {
         int todoOk =0;
 
@@ -132,7 +133,7 @@ int employee_getId(Employee* employeeList,int* id)
     return todoOk;
 }
 
-int employee_setNombre(Employee* employee,char* nombre)
+int employee_setNombre(Profesor* employee,char* nombre)
 {
         int todoOk =0;
 
@@ -144,7 +145,7 @@ int employee_setNombre(Employee* employee,char* nombre)
 
     return todoOk;
 }
-int employee_getNombre(Employee* employeeList,char* nombre)
+int employee_getNombre(Profesor* employeeList,char* nombre)
 {
     int todoOk =0;
 
@@ -157,7 +158,7 @@ int employee_getNombre(Employee* employeeList,char* nombre)
     return todoOk;
 }
 
-int employee_setHorasTrabajadas(Employee* employee,int horasTrabajadas)
+int employee_setHorasTrabajadas(Profesor* employee,int horasTrabajadas)
 {
     int todoOk =0;
 
@@ -169,7 +170,7 @@ int employee_setHorasTrabajadas(Employee* employee,int horasTrabajadas)
 
     return todoOk;
 }
-int employee_getHorasTrabajadas(Employee* employeeList,int* horasTrabajadas)
+int employee_getHorasTrabajadas(Profesor* employeeList,int* horasTrabajadas)
 {
         int todoOk =0;
 
@@ -182,7 +183,7 @@ int employee_getHorasTrabajadas(Employee* employeeList,int* horasTrabajadas)
     return todoOk;
 }
 
-int employee_setSueldo(Employee* employee,int sueldo)
+int employee_setSueldo(Profesor* employee,int sueldo)
 {
     int todoOk =0;
 
@@ -194,7 +195,7 @@ int employee_setSueldo(Employee* employee,int sueldo)
 
     return todoOk;
 }
-int employee_getSueldo(Employee* employeeList,int* sueldo)
+int employee_getSueldo(Profesor* employeeList,int* sueldo)
 {
         int todoOk =0;
 
@@ -208,10 +209,10 @@ int employee_getSueldo(Employee* employeeList,int* sueldo)
 }
 
 
-Employee* newEmpleado()
+Profesor* newEmpleado()
 {
-    Employee* nuevoEmpleado = NULL;
-    nuevoEmpleado = (Employee*) malloc(sizeof(Employee));
+    Profesor* nuevoEmpleado = NULL;
+    nuevoEmpleado = (Profesor*) malloc(sizeof(Profesor));
 
     if(nuevoEmpleado != NULL)
     {
@@ -224,9 +225,9 @@ Employee* newEmpleado()
     return nuevoEmpleado;
 }
 
-Employee* newEmpleadoParam(char* id, char* nombre, char* horasTrabajadas, char* sueldo)
+Profesor* newEmpleadoParam(char* id, char* nombre, char* horasTrabajadas, char* sueldo)
 {
-    Employee* nuevoEmpleado = newEmpleado();
+    Profesor* nuevoEmpleado = newEmpleado();
 
     if(nuevoEmpleado != NULL)
     {
@@ -245,7 +246,7 @@ Employee* newEmpleadoParam(char* id, char* nombre, char* horasTrabajadas, char* 
     return nuevoEmpleado;
 }
 
-int mostrarEmpleado(Employee* pEmp)
+int mostrarEmpleado(Profesor* pEmp)
 {
     int error = 0;
 
@@ -271,7 +272,7 @@ int mostrarEmpleado(Employee* pEmp)
 
 int employee_buscarId(LinkedList* pArrayListEmployee, int id)
 {
-    Employee* employee;
+    Profesor* employee;
     int auxId;
     int i;
     int index=-1;
@@ -283,7 +284,7 @@ int employee_buscarId(LinkedList* pArrayListEmployee, int id)
 
         for(i=0; i<size; i++)
         {
-            employee=(Employee*)ll_get(pArrayListEmployee, i);
+            employee=(Profesor*)ll_get(pArrayListEmployee, i);
             employee_getId(employee, &auxId);
 
             if(id == auxId){
@@ -299,12 +300,12 @@ int employee_buscarId(LinkedList* pArrayListEmployee, int id)
 int employee_delete(LinkedList* pArrayListEmployee, int index)
 {
     int retorno=-2;
-    Employee* employee;
+    Profesor* employee;
     char confirmation[100];
 
     if(pArrayListEmployee != NULL)
     {
-            employee=(Employee*)ll_get(pArrayListEmployee, index);
+            employee=(Profesor*)ll_get(pArrayListEmployee, index);
             mostrarEmpleado(employee);
 
             printf("Seguro que desea eliminar al empleado? si o no\n");
@@ -326,14 +327,14 @@ int employee_edit(LinkedList* pArrayListEmployee, int index)
 {
     int retorno=-2;
     int option;
-    Employee* employee;
+    Profesor* employee;
     char name[100];
     int hoursWorked;
     int salary;
 
     if(pArrayListEmployee != NULL)
     {
-        employee=(Employee*)ll_get(pArrayListEmployee, index);
+        employee=(Profesor*)ll_get(pArrayListEmployee, index);
         if(employee!=NULL)
         {
             employee_getHorasTrabajadas(employee, &hoursWorked);
@@ -342,27 +343,23 @@ int employee_edit(LinkedList* pArrayListEmployee, int index)
 
             do{
                 printf("MENU DE MODIFICACIONES\n\n1.Nombre\n2.Horas trabajadas\n3.Salario\n4.Salir\n\n");
-                printf("Ingrese una opcion: ");
-                scanf("%d", &option);
+                utn_getNumeroEntero(&option,"Ingrese una opcion: ","Opcion invalida, Reingrese una opcion: ", 1,4,3);
 
                 switch(option){
                     case 1:
-                        printf("Ingrese nuevo nombre: ");
-                        fflush(stdin);
-                        gets(name);
+                        utn_getString(name,"Ingrese nuevo nombre: ","Dato invalido, Reingrese un nombre: ",3);
                         employee_setNombre(employee, name);
                         break;
                     case 2:
-                        printf("Ingrese nuevas horas trabajadas del empleado: ");
-                        scanf("%d", &hoursWorked);
+                        utn_getNumeroEntero(&hoursWorked,"Ingrese nuevas horas trabajadas del empleado: ","Dato invalido, Reingrese una la carga horaria: ", 1,9000,3);
                         employee_setHorasTrabajadas(employee, hoursWorked);
                         break;
                     case 3:
-                        printf("Ingrese nuevo salario del empleado: ");
-                        scanf("%d", &salary);
+                        utn_getNumeroEntero(&salary,"Ingrese nuevo salario del empleado: ","Salario invalido, Reingrese el nuevo dalario: ", 1,900000,3);
                         employee_setSueldo(employee, salary);
                         break;
                     case 4:
+                        printf("Saliendo del Menu modificar\n\n");
                                 retorno=0;
                         break;
 
@@ -399,7 +396,7 @@ int sobreescribir_employee(LinkedList* this)
 {
     int retorno = 1;
     int indice;
-    Employee* aux;
+    Profesor* aux;
     char name[20] = "Pepe";
     int horasTrabajadas = 999;
     int salario = 9999;
@@ -408,14 +405,15 @@ int sobreescribir_employee(LinkedList* this)
 
     if(this != NULL)
     {
-        printf("Ingrese el ID que quiere sobreescribir: ");
-        scanf("%d", &indice);
+        utn_getNumeroEntero(&indice,"Ingrese el ID que quiere sobreescribir: ","Id incorrecto, Ingrese un Id valido(0-1000): ",1,ll_len(this),4);
         aux = ll_get(this,indice);
+        mostrarEmpleado(aux);
+        printf("\nSe sobreescribira con: Nombre: %s\nHorasTrabajadas: %d\nSueldo: %d\n\n", name,horasTrabajadas,salario);
+
         aux->id = indice;
         strcpy(aux->nombre,name);
         aux->horasTrabajadas = horasTrabajadas;
         aux->sueldo = salario;
-
 
         ll_push(this,indice,aux);
         retorno = 0;
@@ -428,12 +426,11 @@ int sobreescribir_employee(LinkedList* this)
 int filtrar_horasTrabajadas(void* emp)
 {
     int rta = 0;
-
-    Employee* aux=NULL;
+    Profesor* aux=NULL;
 
     if(emp != NULL)
     {
-        aux = (Employee*)emp;
+        aux = (Profesor*)emp;
 
         if(aux->horasTrabajadas > 300)
         {
@@ -442,3 +439,23 @@ int filtrar_horasTrabajadas(void* emp)
     }
     return rta;
 }
+
+/*
+int filtrar_Sueldo(void* emp)
+{
+    int rta = 0;
+    Profesor* aux=NULL;
+
+    if(emp != NULL)
+    {
+
+        aux = (Profesor*)emp;
+
+        if(aux->sueldo > 40000)
+        {
+            rta = 1;
+        }
+    }
+    return rta;
+}
+*/
